@@ -1,6 +1,5 @@
 name: Docker Build and Push
 
-# Trigger the workflow on push to the main branch
 on:
   push:
     branches:
@@ -8,7 +7,6 @@ on:
 
 jobs:
   build:
-    # Specify the environment the job should run on
     runs-on: ubuntu-latest
 
     steps:
@@ -26,7 +24,7 @@ jobs:
       # Step to build the Docker image
       - name: Build Docker image
         run: |
-          docker build -t yourdockerhubusername/my-nextjs-app .
+          docker build -t adithyakanagaraj/my-nextjs-app .
 
       # Step to push the Docker image to Docker Hub
       - name: Push Docker image
