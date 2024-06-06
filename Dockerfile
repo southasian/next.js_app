@@ -11,7 +11,7 @@ ADD package*.json ./
 RUN npm install
 
 # Copy the rest of the application code to the working directory
-COPY . .
+RUN . .
 
 # Expose the port Next.js is running on (by default, it's 3000)
 EXPOSE 3000
