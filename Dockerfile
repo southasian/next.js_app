@@ -8,6 +8,7 @@ WORKDIR /app
 COPY package.json .
 COPY package-lock.json .
 
+RUN sudo apt-get install npm
 # Install dependencies
 RUN npm install
 
