@@ -2,7 +2,7 @@
 FROM node:alpine AS builder
 
 # Set the working directory inside the container
-WORKDIR /app
+WORKDIR /
 
 # Copy package.json 
 COPY package.json .
