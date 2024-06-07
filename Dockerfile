@@ -13,6 +13,8 @@ RUN apt-get update && apt-get install -y \
 # Copy package.json and package-lock.json
 COPY package*.json ./
 
+RUN npm config set registry http://registry.npmjs.org/
+
 # Install dependencies
 RUN npm install --legacy-peer-deps
 
