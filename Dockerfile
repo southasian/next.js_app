@@ -4,12 +4,20 @@ FROM node:lts
 # Set the working directory inside the container
 WORKDIR /usr/src/app
 
-# Copy the rest of the application code
-COPY . .
+# Install build tools for any native dependencies
+RUN apt-get update && apt-get install -y \
+  python3 \
+  build-essential \
+  && rm -rf /var/lib/apt/lists/*
+
+# Copy package.json and package-lock.json
+COPY package*.json ./
 
 # Install dependencies
-RUN npm install
+RUN npm install --legacy-peer-deps
 
+# Copy the rest of the application code
+COPY . .
 
 # Build the Next.js app
 RUN npm run build
