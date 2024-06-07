@@ -1,5 +1,5 @@
 # Use the latest Node.js LTS version as the base image
-FROM node:lts
+FROM node:latest
 
 # Set the working directory inside the container
 WORKDIR /usr/src/app
@@ -13,10 +13,9 @@ RUN apt-get update && apt-get install -y \
 # Copy package.json and package-lock.json
 COPY package*.json ./
 
-RUN npm config set registry http://registry.npmjs.org/
-
 # Install dependencies
-RUN npm install --legacy-peer-deps
+# Adding additional debug flags to npm install
+RUN npm install --legacy-peer-deps --verbose
 
 # Copy the rest of the application code
 COPY . .
