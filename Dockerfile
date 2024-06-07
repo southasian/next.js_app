@@ -13,11 +13,7 @@ RUN apt-get update && apt-get install -y \
 # Copy package.json and package-lock.json
 COPY package*.json ./
 
-RUN sudo apt-get install npm
-
-# Install dependencies
-# Adding additional debug flags to npm install
-RUN npm install --legacy-peer-deps --verbose
+RUN npm install
 
 # Copy the rest of the application code
 COPY . .
